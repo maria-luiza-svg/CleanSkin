@@ -1,4 +1,3 @@
-// Produtos cadastrados na loja.
 const products = [
     {
         id: 1,
@@ -57,7 +56,6 @@ const products = [
         price: 118.00
     }
 ];
-
 let cart = [];
 let currentCategory = 'todos';
 
