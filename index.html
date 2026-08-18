@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Skin</title>
+    <link rel="Stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+  <header>
+    <div class="logo" onclick="switchCategory('todos')">Clean Skin</div>
+    
+    <nav>
+      <ul class="menu">
+        <li><a href="javascript:void(0)" class="menu-link active" id="link-todos" onclick="switchCategory('todos', this)">Início</a></li>
+        <li><a href="javascript:void(0)" class="menu-link" id="link-seruns" onclick="switchCategory('seruns', this)">Séruns</a></li>
+        <li><a href="javascript:void(0)" class="menu-link" id="link-hidratantes" onclick="switchCategory('hidratantes', this)">Hidratantes</a></li>
+        <li><a href="javascript:void(0)" class="menu-link" id="link-protecao" onclick="switchCategory('protecao', this)">Protetor Solar</a></li>
+        <li><a href="javascript:void(0)" class="menu-link" id="link-limpeza" onclick="switchCategory('limpeza', this)">Limpeza</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar produtos..." onkeyup="filterProducts()" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg>  
+      </div>
+
+      <button class="cart-btn" onclick="toggleCart()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-basket2" viewBox="0 0 16 16">
+  <path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0z"/>
+  <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6z"/>
+</svg><span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="hero" id="heroSection">
+    <h1>Sua pele com brilho natural</h1>
+    <p>Fórmulas dermatológicas suaves e eficazes para o seu dia a dia</p>
+  </section>
+
+
+  <!-- Adicionar antes de #productsContainer -->
+<div class="container">
+  <h2 id="categoryTitle" class="section-title">Todos os Produtos</h2>
+<div id="productsContainer">
+
+    <div class="product-card" data-id="1" data-category="seruns" data-category-name="Sérum">
+        <img class="product-img" src="serum.webp" alt="Sérum Facial Vitamina C 10%">
+        <div class="product-info">
+            <span class="product-category">Sérum</span>
+            <h3 class="product-title">Sérum Facial Vitamina C glow</h3>
+            <div class="product-price">R$ 291,90</div>
+            <button class="btn-add" onclick="addToCart(1)">
+                Adicionar ao Carrinho
+            </button>
+        </div>
+    </div>
+
+        <div class="product-card" data-id="2" data-category="seruns" data-category-name="Sérum">
+        <img class="product-img" src="serum 2.avif" alt="Sérum Facial Vitamina C 10%">
+        <div class="product-info">
+            <span class="product-category">Sérum</span>
+            <h3 class="product-title">Sérum Facial Fat water</h3>
+            <div class="product-price">R$ 129,90</div>
+            <button class="btn-add" onclick="addToCart(2)">
+                Adicionar ao Carrinho
+            </button>
+        </div>
+    </div>
+
+    <div class="product-card" data-id="3" data-category="hidratantes" data-category-name="Hidratante">
+        <img class="product-img" src="hidratante.avif" alt="Hidratante Ácido Hialurônico">
+        <div class="product-info">
+            <span class="product-category">Hidratante</span>
+            <h3 class="product-title">Hidratante Instant Reset</h3>
+            <div class="product-price">R$ 377,00</div>
+            <button class="btn-add" onclick="addToCart(3)">
+                Adicionar ao Carrinho
+            </button>
+        </div>
+    </div>
+
+        <div class="product-card" data-id="4" data-category="hidratantes" data-category-name="Hidratante">
+        <img class="product-img" src="hidratante 2.avif" alt="Hidratante Ácido Hialurônico">
+        <div class="product-info">
+            <span class="product-category">Hidratante</span>
+            <h3 class="product-title">Hidratante Facial Hydration Face</h3>
+            <div class="product-price">R$ 259,00</div>
+            <button class="btn-add" onclick="addToCart(4)">
+                Adicionar ao Carrinho
+            </button>
+        </div>
+    </div>
+
+    <div class="product-card" data-id="5" data-category="protecao" data-category-name="Proteção Solar">
+        <img class="product-img" src="protetor solar.avif" alt="Protetor Solar Facial FPS 60">
+        <div class="product-info">
+            <span class="product-category">Proteção Solar</span>
+            <h3 class="product-title">Protetor Solar Facial FPS 30</h3>
+            <div class="product-price">R$ 313,00</div>
+            <button class="btn-add" onclick="addToCart(5)">
+                Adicionar ao Carrinho
+            </button>
+        </div>
+    </div>
+
+        <div class="product-card" data-id="6" data-category="protecao" data-category-name="Proteção Solar">
+        <img class="product-img" src="protetor solar 2.avif" alt="Protetor Solar Facial FPS 60">
+        <div class="product-info">
+            <span class="product-category">Proteção Solar</span>
+            <h3 class="product-title">Protetor Solar Facial Hydra Vizor </h3>
+            <div class="product-price">R$ 313,00</div>
+            <button class="btn-add" onclick="addToCart(6)">
+                Adicionar ao Carrinho
+            </button>
+        </div>
+    </div>
+
+    <div class="product-card" data-id="7" data-category="limpeza" data-category-name="Limpeza">
+        <img class="product-img" src="gel de limpeza.avif" alt="Gel de Limpeza Facial Suave">
+        <div class="product-info">
+            <span class="product-category">Limpeza</span>
+            <h3 class="product-title">Gel de Limpeza Cherry Dub Cleanser</h3>
+            <div class="product-price">R$ 280,00</div>
+            <button class="btn-add" onclick="addToCart(7)">
+                Adicionar ao Carrinho
+            </button>
+        </div>
+    </div>
+
+        <div class="product-card" data-id="8" data-category="limpeza" data-category-name="Limpeza">
+        <img class="product-img" src="gel de limpeza 2.avif" alt="Gel de Limpeza Facial Suave">
+        <div class="product-info">
+            <span class="product-category">Limpeza</span>
+            <h3 class="product-title">Gel de Limpeza Remove-it-All</h3>
+            <div class="product-price">R$ 118,00</div>
+            <button class="btn-add" onclick="addToCart(8)">
+                Adicionar ao Carrinho
+            </button>
+        </div>
+    </div>
+</div>
+
+  <!-- Drawer / Modal do Carrinho -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Seu carrinho</h3>
+      <button class="close-cart" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItemsContainer">
+      <!-- Itens do carrinho -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotalValue">R$ 0,00</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotification">Produto adicionado ao carrinho!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
