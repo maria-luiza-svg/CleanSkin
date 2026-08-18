@@ -1,5 +1,4 @@
 // Produtos cadastrados na loja.
-// As imagens ficam no HTML, não no JavaScript.
 const products = [
     {
         id: 1,
@@ -18,39 +17,39 @@ const products = [
     {
         id: 3,
         name: "Hidratante Instant Reset",
-        category: "Hidratantes",
+        category: "hidratantes", // Ajustado de "Hidratantes" para "hidratantes"
         categoryName: "Hidratante",
         price: 377.00
     },
     {
         id: 4,
         name: "Hidratante Facial Hydration Face",
-        category: "Hidratantes",
+        category: "hidratantes", // Ajustado de "Hidratantes" para "hidratantes"
         categoryName: "Hidratante",
         price: 259.00
     },
     {
         id: 5,
         name: "Protetor Solar Facial FPS 30",
-        category: "Proteção Solar",
+        category: "protecao", // Ajustado de "Proteção Solar" para "protecao"
         categoryName: "Proteção Solar",
         price: 313.00
     },
     {
         id: 6,
         name: "Protetor Solar Facial Hydra Vizor",
-        category: "Proteção Solar",
+        category: "protecao", // Ajustado de "Proteção Solar" para "protecao"
         categoryName: "Proteção Solar",
         price: 313.00
     },
-        {
+    {
         id: 7,
         name: "Gel de Limpeza Cherry Dub Cleanser",
         category: "limpeza",
         categoryName: "Limpeza",
         price: 280.00
     },
-        {
+    {
         id: 8,
         name: "Gel de Limpeza Remove-it-All",
         category: "limpeza",
