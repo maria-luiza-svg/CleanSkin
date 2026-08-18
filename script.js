@@ -57,6 +57,65 @@ const products = [
     }
 ];
 let cart = [];
+const products = [
+    {
+        id: 1,
+        name: "Sérum Facial Vitamina C Glow",
+        category: "seruns",
+        categoryName: "Sérum",
+        price: 291.90
+    },
+    {
+        id: 2,
+        name: "Sérum Facial Fat Water",
+        category: "seruns",
+        categoryName: "Sérum",
+        price: 129.90
+    },
+    {
+        id: 3,
+        name: "Hidratante Instant Reset",
+        category: "hidratantes", // Ajustado de "Hidratantes" para "hidratantes"
+        categoryName: "Hidratante",
+        price: 377.00
+    },
+    {
+        id: 4,
+        name: "Hidratante Facial Hydration Face",
+        category: "hidratantes", // Ajustado de "Hidratantes" para "hidratantes"
+        categoryName: "Hidratante",
+        price: 259.00
+    },
+    {
+        id: 5,
+        name: "Protetor Solar Facial FPS 30",
+        category: "protecao", // Ajustado de "Proteção Solar" para "protecao"
+        categoryName: "Proteção Solar",
+        price: 313.00
+    },
+    {
+        id: 6,
+        name: "Protetor Solar Facial Hydra Vizor",
+        category: "protecao", // Ajustado de "Proteção Solar" para "protecao"
+        categoryName: "Proteção Solar",
+        price: 313.00
+    },
+    {
+        id: 7,
+        name: "Gel de Limpeza Cherry Dub Cleanser",
+        category: "limpeza",
+        categoryName: "Limpeza",
+        price: 280.00
+    },
+    {
+        id: 8,
+        name: "Gel de Limpeza Remove-it-All",
+        category: "limpeza",
+        categoryName: "Limpeza",
+        price: 118.00
+    }
+];
+let cart = [];
 let currentCategory = 'todos';
 
 
@@ -148,8 +207,6 @@ function addToCart(productId) {
     // Pega a imagem diretamente do HTML
     const productCard =
         document.querySelector(`.product-card[data-id="${productId}"]`);
-    const productImage =
-        productCard.querySelector('.product-img').src;
 
     if (existingItem) {
         existingItem.quantity += 1;
@@ -157,7 +214,6 @@ function addToCart(productId) {
     } else {
         cart.push({
             ...product,
-            img: productImage,
             quantity: 1
         });
     }
@@ -219,8 +275,6 @@ function updateCart() {
         itemEl.className = 'cart-item';
 
         itemEl.innerHTML = `
-            <img src="${item.img}" alt="${item.name}">
-
             <div class="cart-item-details">
 
                 <div class="cart-item-title">
@@ -275,6 +329,44 @@ function toggleCart() {
         overlay.style.display = 'block';
     }
 }
+
+
+// Finaliza compra
+function checkout() {
+
+    if (cart.length === 0) {
+
+        alert(
+            'Adicione ao menos um produto antes de finalizar a compra.'
+        );
+
+        return;
+    }
+
+    alert(
+        'Pedido realizado com sucesso! Obrigado por comprar na Clean Skin.'
+    );
+
+    cart = [];
+    updateCart();
+    toggleCart();
+}
+
+
+// Notificação
+function showToast(message) {
+
+    const toast =
+        document.getElementById('toastNotification');
+    toast.innerText = message;
+    toast.style.display = 'block';
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 2500);
+}
+
+// Exibe todos os produtos inicialmente
+renderProducts(products);
 
 
 // Finaliza compra
