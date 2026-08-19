@@ -57,65 +57,6 @@ const products = [
     }
 ];
 let cart = [];
-const products = [
-    {
-        id: 1,
-        name: "Sérum Facial Vitamina C Glow",
-        category: "seruns",
-        categoryName: "Sérum",
-        price: 291.90
-    },
-    {
-        id: 2,
-        name: "Sérum Facial Fat Water",
-        category: "seruns",
-        categoryName: "Sérum",
-        price: 129.90
-    },
-    {
-        id: 3,
-        name: "Hidratante Instant Reset",
-        category: "hidratantes", // Ajustado de "Hidratantes" para "hidratantes"
-        categoryName: "Hidratante",
-        price: 377.00
-    },
-    {
-        id: 4,
-        name: "Hidratante Facial Hydration Face",
-        category: "hidratantes", // Ajustado de "Hidratantes" para "hidratantes"
-        categoryName: "Hidratante",
-        price: 259.00
-    },
-    {
-        id: 5,
-        name: "Protetor Solar Facial FPS 30",
-        category: "protecao", // Ajustado de "Proteção Solar" para "protecao"
-        categoryName: "Proteção Solar",
-        price: 313.00
-    },
-    {
-        id: 6,
-        name: "Protetor Solar Facial Hydra Vizor",
-        category: "protecao", // Ajustado de "Proteção Solar" para "protecao"
-        categoryName: "Proteção Solar",
-        price: 313.00
-    },
-    {
-        id: 7,
-        name: "Gel de Limpeza Cherry Dub Cleanser",
-        category: "limpeza",
-        categoryName: "Limpeza",
-        price: 280.00
-    },
-    {
-        id: 8,
-        name: "Gel de Limpeza Remove-it-All",
-        category: "limpeza",
-        categoryName: "Limpeza",
-        price: 118.00
-    }
-];
-let cart = [];
 let currentCategory = 'todos';
 
 
