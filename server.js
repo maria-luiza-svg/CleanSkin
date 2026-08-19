@@ -96,10 +96,12 @@ app.get('/', (req, res) => {
 
 
 // 2. GET /api/products - Busca os produtos 
+// Cria o caminho get e modifica o id para numeros, em seguida busca cada produto com seu respectivo id
 app.get('/products', (req, res) => {
   const productId = Number(req.params.id);
   const product = products.find(p => p.id === productId);
 
+  // Demonstra erro caso o porduto n seja encontrado a partir do id
   if (!product) {
     return res.status(404).json({ message: "Produto não encontrado." });
   }
@@ -108,13 +110,16 @@ app.get('/products', (req, res) => {
 });
 
 // 3. POST /api/products - Cadastra novo produto
+// Cria o caminho do post com seu corpo principal desconstruido
 app.post('/products', (req, res) => {
   const { name, category, categoryName, price, image } = req.body;
 
+  // Faz a validação dos dados e define o codigo http
   if (!name || !category || !price) {
     return res.status(400).json({ message: "Campos 'name', 'category' e 'price' são obrigatórios." });
   }
 
+  // Gera um novo id a partir de uma auto incrementação, gerando um novo produto para o codigo
   const newProduct = {
     id: products.length ? Math.max(...products.map(p => p.id)) + 1 : 1,
     name,
@@ -123,6 +128,7 @@ app.post('/products', (req, res) => {
     price: Number(price),
   };
 
+  // Demonstra o sucesso cado o novo id seja adicionado
   products.push(newProduct);
   res.status(201).json(newProduct);
 });
@@ -131,6 +137,6 @@ app.post('/products', (req, res) => {
 // Configurar o servidor pra escutar na porta 3002
 const PORT = 3002;
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`Servidor rodando na porta ${PORT}`);// Exibe todas as informções obstidas na porta caso sucesso
   console.log(`Acesse: http://localhost:${PORT}`);
 });
