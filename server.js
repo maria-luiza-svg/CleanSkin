@@ -95,7 +95,7 @@ app.get('/', (req, res) => {
 });
 
 
-// 2. GET /api/products/:id - Busca produto por ID
+// 2. GET /api/products - Busca os produtos 
 app.get('/products', (req, res) => {
   const productId = Number(req.params.id);
   const product = products.find(p => p.id === productId);
